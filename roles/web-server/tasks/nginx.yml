@@ -1,0 +1,16 @@
+---
+- name: Install nginx-full
+  apt: name=nginx-full
+
+- name: Start and enable nginx
+  service: name=nginx state=started enabled=yes
+
+- name: Remove the default nginx site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Creat the nginx configuration
+  copy: src=nginx-configuration dest=/etc/nginx/sites-available/challenge owner=root group=root mode=644
+  notify: restart nginx 
+
+- name: Symlink the nginx configuration file
+  file: src=/etc/nginx/sites-available/challenge dest=/etc/nginx/sites-enabled/challenge state=link

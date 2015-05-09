@@ -1,0 +1,6 @@
+---
+- name: Make sure the latest version of the repo is served
+  include: git.yml
+
+- name: Make sure nginx is installed
+  include: nginx.yml

@@ -1,0 +1,13 @@
+---
+- name: Install git
+  apt: name=git-core
+
+- name: Make sure the git repo is cloned and up to date
+  git: repo="https://github.com/puppetlabs/exercise-webpage"
+       dest="/home/vagrant/challenge"
+       accept_hostkey=yes
+       depth=1
+       force=yes
+       update=yes
+  sudo: yes
+  sudo_user: vagrant
