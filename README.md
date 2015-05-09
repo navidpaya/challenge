@@ -38,4 +38,4 @@ vagrant up
 
 Port 8000 of the nginx server on the vagrant box is mapped to port 8000 on your workstation, so once done with the run, just open your browser and go to:
 
-http://localhpst:8000/
+[http://localhost:8000/](http://localhost:8000)
